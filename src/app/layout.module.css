@@ -1,0 +1,85 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 68px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-stretch: 125%;
+  font-weight: 800;
+  font-size: 19px;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.mark {
+  width: 22px;
+  height: 16px;
+  border-radius: 3px;
+  background: var(--depth);
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--ink-2);
+}
+
+.footer {
+  margin-top: 112px;
+  border-top: 1px solid var(--line);
+  padding: 40px 0 56px;
+  font-size: 14px;
+}
+
+.footerInner {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.footerName {
+  margin: 0 0 4px;
+  font-family: var(--font-display);
+  font-stretch: 125%;
+  font-weight: 800;
+  font-size: 17px;
+}
+
+.footerNote {
+  margin: 0;
+  max-width: 44ch;
+  color: var(--ink-2);
+}
+
+.footerLinks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.footerLinks a {
+  color: var(--ink-2);
+  text-decoration: none;
+}
+
+.footerLinks a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+}
+
+@media (max-width: 560px) {
+  .tag {
+    display: none;
+  }
+}

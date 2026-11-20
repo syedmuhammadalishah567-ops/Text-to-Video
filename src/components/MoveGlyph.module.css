@@ -1,0 +1,79 @@
+.glyph {
+  width: 48px;
+  height: 32px;
+  display: block;
+  overflow: visible;
+}
+
+.frame {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  opacity: 0.55;
+}
+
+.back path {
+  fill: currentColor;
+  opacity: 0.28;
+}
+
+.front {
+  fill: currentColor;
+}
+
+.scene,
+.back,
+.front {
+  transform-box: view-box;
+  transform-origin: 24px 16px;
+  animation-duration: 2.4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-play-state: paused;
+}
+
+:global(.is-live) .scene,
+:global(.is-live) .back,
+:global(.is-live) .front {
+  animation-play-state: running;
+}
+
+.pushIn .scene { animation-name: grow; }
+.pullOut .scene { animation-name: shrink; }
+.panLeft .back { animation-name: slideBackL; }
+.panLeft .front { animation-name: slideFrontL; }
+.panRight .back { animation-name: slideBackR; }
+.panRight .front { animation-name: slideFrontR; }
+.craneUp .back { animation-name: craneBack; }
+.craneUp .front { animation-name: craneFront; }
+.orbit .back { animation-name: orbitBack; animation-timing-function: linear; }
+.vertigo .back { animation-name: vertigo; }
+.wiggle .back { animation-name: wiggleBack; animation-duration: 0.6s; }
+.wiggle .front { animation-name: wiggleFront; animation-duration: 0.6s; }
+
+@keyframes grow { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.35); } }
+@keyframes shrink { 0%, 100% { transform: scale(1.35); } 50% { transform: scale(1); } }
+@keyframes slideBackL { 0%, 100% { transform: translateX(-5px); } 50% { transform: translateX(5px); } }
+@keyframes slideFrontL { 0%, 100% { transform: translateX(3px); } 50% { transform: translateX(-3px); } }
+@keyframes slideBackR { 0%, 100% { transform: translateX(5px); } 50% { transform: translateX(-5px); } }
+@keyframes slideFrontR { 0%, 100% { transform: translateX(-3px); } 50% { transform: translateX(3px); } }
+@keyframes craneBack { 0%, 100% { transform: translateY(-3px); } 50% { transform: translateY(4px); } }
+@keyframes craneFront { 0%, 100% { transform: translateY(3px); } 50% { transform: translateY(-2px); } }
+@keyframes orbitBack {
+  0% { transform: translate(4px, 0); }
+  25% { transform: translate(0, 3px); }
+  50% { transform: translate(-4px, 0); }
+  75% { transform: translate(0, -3px); }
+  100% { transform: translate(4px, 0); }
+}
+@keyframes vertigo { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.5); } }
+@keyframes wiggleBack { 0%, 100% { transform: translateX(-3px); } 50% { transform: translateX(3px); } }
+@keyframes wiggleFront { 0%, 100% { transform: translateX(2px); } 50% { transform: translateX(-2px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .scene,
+  .back,
+  .front {
+    animation: none;
+  }
+}
